@@ -1,0 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstpenultimate.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mimarque <mimarque@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/20 21:57:03 by mimarque          #+#    #+#             */
+/*   Updated: 2022/07/20 21:57:06 by mimarque         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+t_list	*ft_lstpenultimate(t_list **lst)
+{
+	t_list	*current;
+	t_list	*previous;
+
+	if (!*lst || !(*lst)->next)
+		return (NULL);
+	current = *lst;
+	while (current->next)
+	{
+		previous = current;
+		current = current->next;
+	}
+	return (previous);
+}
