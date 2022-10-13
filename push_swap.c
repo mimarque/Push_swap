@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
 
 /// @brief Checks if string is an int
 /// 1) Skips whitespace

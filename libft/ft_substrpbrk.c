@@ -25,8 +25,6 @@ char	*ft_substrpbrk(char *s, size_t len, char *accept)
 	char	*a;
 	char	*l;
 
-	if (len < 0)
-		return (NULL);
 	l = s + len;
 	while (s != l)
 	{
