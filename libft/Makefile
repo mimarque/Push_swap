@@ -6,7 +6,7 @@
 #    By: mimarque <mimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/28 18:26:42 by mimarque          #+#    #+#              #
-#    Updated: 2022/05/16 14:13:31 by mimarque         ###   ########.fr        #
+#    Updated: 2022/10/13 13:08:52 by mimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ $(OBJ_DIR):
 	mkdir $@
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $(OBJ_DIR)$@ 
+	$(CC) $(CFLAGS) -g -c $< -o $(OBJ_DIR)$@ 
 
 clean:
 	rm -rf $(OBJ_DIR)
