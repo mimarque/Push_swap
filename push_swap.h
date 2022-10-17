@@ -6,7 +6,7 @@
 /*   By: mimarque <mimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:42:50 by mimarque          #+#    #+#             */
-/*   Updated: 2022/10/13 12:43:43 by mimarque         ###   ########.fr       */
+/*   Updated: 2022/10/17 13:14:18 by mimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,50 +35,59 @@ typedef struct s_stack
 	int				cost_b;
 }	t_stack;
 
-bool	is_intnumber(char *str);
-bool	has_duplicates(int *arr);
-int		*store_validate_data(int argc, char *argv[]);
-void	init_stack(int argc, int *arr, t_list **s_a);
-void	del_stk(void *a);
-void	prt(void *a);
-void	prt_i(void *a);
-int		ft_abs(int n);
-bool	is_sa_ordered(int argc, t_list *stack);
-bool	is_sorted(t_list *stack);
-void	push(t_list **src, t_list **dest);
-void	pa(t_list **s_a, t_list **s_b);
-void	pb(t_list **s_a, t_list **s_b);
-void	swap(t_list **stack);
-void	sa(t_list **s_a);
-void	sb(t_list **s_b);
-void	ss(t_list **s_a, t_list **s_b);
-void	rotate(t_list **stack);
-void	ra(t_list **s_a);
-void	rb(t_list **s_b);
-void	rr(t_list **s_a, t_list **s_b);
-void	reverse_rotate(t_list **stack);
-void	rra(t_list **s_a);
-void	rrb(t_list **s_b);
-void	rrr(t_list **s_a, t_list **s_b);
+//get.c
 void	get_position(t_list *stack);
-int		get_highest_index(t_list *stack);
-void	mini_sort(t_list **s_a);
-void	push_to_b(t_list **s_a, t_list **s_b);
-int		get_lowest_index_position(t_list *stack);
-void	gtp_vars(t_list *tmp_a, int *tidx, int *tpos);
 void	get_target(t_list *a, t_list *b, int *tidx, int *tpos);
-void	get_target_position(t_list *a, t_list *b);
-int		*sort_values(int argc, int *arr);
-void	index_values(int *arr, int *iarr, int size, t_list **s_a);
+void	gtp_vars(t_list *tmp_a, int *tidx, int *tpos);
+int		get_highest_index(t_list *stack);
+int		get_lowest_index_position(t_list *stack);
+//init.c
 void	initialize(int argc, char **argv, t_list **s_a);
-void	get_cost(t_list *s_a, t_list *s_b);
+int		*store_validate_data(int argc, char *argv[]);
+int		*sort_values(int argc, int *arr);
+void	init_stack(int argc, int *arr, t_list **s_a);
+void	index_values(int *arr, int *iarr, int size, t_list **s_a);
+//move.c
 void	rr_both(t_list **a, t_list **b, int *cost_a, int *cost_b);
 void	r_both(t_list **a, t_list **b, int *cost_a, int *cost_b);
 void	r_a(t_list **a, int *cost);
 void	r_b(t_list **b, int *cost);
 void	do_move(t_list **a, t_list **b, int cost_a, int cost_b);
+//push_swap.c
+bool	is_sorted(t_list *stack);
+void	push_swap(t_list **s_a, t_list **s_b);
+//push.c
+void	push(t_list **src, t_list **dest);
+void	pa(t_list **s_a, t_list **s_b);
+void	pb(t_list **s_a, t_list **s_b);
+//reverse_rotate.c
+void	reverse_rotate(t_list **stack);
+void	rra(t_list **s_a);
+void	rrb(t_list **s_b);
+void	rrr(t_list **s_a, t_list **s_b);
+//rotate.c
+void	rotate(t_list **stack);
+void	ra(t_list **s_a);
+void	rb(t_list **s_b);
+void	rr(t_list **s_a, t_list **s_b);
+//sort_b.c
+void	push_to_b(t_list **s_a, t_list **s_b);
+void	get_target_position(t_list *a, t_list *b);
+void	get_cost(t_list *s_a, t_list *s_b);
 void	do_cheapest_move(t_list **s_a, t_list **s_b);
 void	shift_stack(t_list **s_a);
+//sort.c
 void	sort(t_list **s_a, t_list **s_b);
-void	push_swap(t_list **s_a, t_list **s_b);
+void	mini_sort(t_list **s_a);
+//swap.c
+void	swap(t_list **stack);
+void	sa(t_list **s_a);
+void	sb(t_list **s_b);
+void	ss(t_list **s_a, t_list **s_b);
+//utils.c
+bool	is_intnumber(char *str);
+bool	has_duplicates(int *arr);
+void	del_stk(void *a);
+int		ft_abs(int n);
+bool	is_sa_ordered(int argc, t_list *stack);
 #endif

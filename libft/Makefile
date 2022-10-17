@@ -6,7 +6,7 @@
 #    By: mimarque <mimarque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/28 18:26:42 by mimarque          #+#    #+#              #
-#    Updated: 2022/10/13 13:08:52 by mimarque         ###   ########.fr        #
+#    Updated: 2022/10/16 20:11:33 by mimarque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,29 +18,27 @@ LIBSO=libft.so
 
 CC=gcc
 
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS=-Wall -Wextra -Werror -g
 
 OBJ_DIR=obj/
 
 HDR_NAME=libft.h
 
-SRC_PATH=$(addprefix $(SRC_DIR), $(SRC_FILES))
-
 SRC_NAMES=${SRC_FILES:.c=.o}
 
 SRC_NAMES_O=$(addprefix $(OBJ_DIR), $(SRC_NAMES))
 
-all: $(NAME)
+all: $(OBJ_DIR) $(NAME)
 
-$(NAME): $(OBJ_DIR) $(SRC_NAMES)
+$(NAME): $(SRC_NAMES_O) | $(OBJ_DIR)
 	ar -rc $@ $(SRC_NAMES_O)
 	ranlib $@
 
 $(OBJ_DIR):
 	mkdir $@
 
-%.o: %.c
-	$(CC) $(CFLAGS) -g -c $< -o $(OBJ_DIR)$@ 
+$(OBJ_DIR)%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
 	rm -rf $(OBJ_DIR)

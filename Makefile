@@ -4,17 +4,42 @@ CFLAGS=-Wall -Wextra -Werror
 
 NAME=push_swap
 
+OBJ_DIR=obj/
+
 I_LIBFT=-Ilibft -Llibft -lft
 
 LIBFT=libft/libft.a
 
-push_swap: $(LIBFT)
-	$(CC) $(CFLAGS) $(I_LIBFT) push_swap.c -o push_swap
+SRC_FILES:=$(wildcard *.c)
+
+SRC_NAMES=$(patsubst %.c,%.o,$(SRC_FILES))
+
+SRC_NAMES_O=$(addprefix $(OBJ_DIR), $(SRC_NAMES))
+
+all: $(OBJ_DIR) $(LIBFT) $(NAME)
+
+$(NAME): $(SRC_NAMES_O) | $(OBJ_DIR)
+	$(CC) $(CFLAGS) $(I_LIBFT) $(SRC_NAMES_O) -o $@
+
+$(OBJ_DIR):
+	mkdir $@
+
+$(OBJ_DIR)%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 $(LIBFT):
 	@echo "compiling libft"
 	make -C libft
 	@echo "done libft"
 
+clean:
+	rm -rf obj/
+	make -C libft $@
 
-.PHONY: all clean fclean re so
+fclean: clean
+	rm -f push_swap
+	make -C libft $@
+
+re: fclean all
+
+.PHONY: all clean fclean re
