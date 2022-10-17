@@ -1,31 +1,23 @@
 CC=gcc
-
 CFLAGS=-Wall -Wextra -Werror
-
 NAME=push_swap
-
 OBJ_DIR=obj/
-
 I_LIBFT=-Ilibft -Llibft -lft
-
 LIBFT=libft/libft.a
-
 SRC_FILES:=$(wildcard *.c)
-
 SRC_NAMES=$(patsubst %.c,%.o,$(SRC_FILES))
-
 SRC_NAMES_O=$(addprefix $(OBJ_DIR), $(SRC_NAMES))
 
 all: $(OBJ_DIR) $(LIBFT) $(NAME)
 
 $(NAME): $(SRC_NAMES_O) | $(OBJ_DIR)
-	$(CC) $(CFLAGS) $(I_LIBFT) $(SRC_NAMES_O) -o $@
+	$(CC) $(CFLAGS) $(SRC_NAMES_O)  $(I_LIBFT) -o $@
 
 $(OBJ_DIR):
 	mkdir $@
 
 $(OBJ_DIR)%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ 
+	$(CC) $(CFLAGS) $(I_LIBFT) -c $< -o $@ 
 
 $(LIBFT):
 	@echo "compiling libft"
