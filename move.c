@@ -6,7 +6,7 @@
 /*   By: mimarque <mimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 02:27:20 by mimarque          #+#    #+#             */
-/*   Updated: 2022/10/17 02:27:55 by mimarque         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:54:26 by mimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	rr_both(t_list **a, t_list **b, int *cost_a, int *cost_b)
 		rrr(a, b);
 	}
 }
-
 
 /// Rotates both stack A and B until one of them is in position.
 /// The given cost is positive since both positions are in the top half

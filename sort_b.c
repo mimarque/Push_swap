@@ -6,7 +6,7 @@
 /*   By: mimarque <mimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:54:06 by mimarque          #+#    #+#             */
-/*   Updated: 2022/10/17 12:54:46 by mimarque         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:50:56 by mimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,16 @@ void	get_target_position(t_list *a, t_list *b)
 /// If the element is in the bottom half of the stack, the cost will be negative
 /// if it is in the top half, the cost is positive. 
 /// cost b = position on the stack except the last values all decrease by 1
-/// after the middle value
+/// from the last until the middle value
 /// cost a = position on the stack except the last values all decrease by 1
-/// after the middle value
+/// from the last until the  middle value
+///		s_b->cost_b = s_b->pos;
+///		if (s_b->pos > size_b / 2)
+///			s_b->cost_b = (size_b - s_b->pos) * -1;
+///
+///		s_b->cost_a = s_b->target_pos;
+/// 	if (s_b->target_pos > size_a / 2)
+/// 		s_b->cost_a = (size_a - s_b->target_pos) * -1;
 /// @brief Calculates the cost of moving each element from stack b to final pos.
 /// @param s_a stack a
 /// @param s_b stack b

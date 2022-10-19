@@ -6,7 +6,7 @@
 /*   By: mimarque <mimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:38:24 by mimarque          #+#    #+#             */
-/*   Updated: 2022/10/17 12:44:48 by mimarque         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:37:44 by mimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ void	get_position(t_list *stack)
 /// an element in stack B. First checks if the index of the B element can
 /// be placed somewhere in between elements in stack A, by checking whether
 /// there is an element in stack A with a bigger index. If not, it finds the
-/// element with the smallest index in A and assigns that as the target position.
+/// element with the smallest index in A and assigns that as the target
+/// position.
 /// --- Example:
+/// tmp_a->index > b->index && tmp_a->index < *tidx
 /// 	target_pos starts at INT_MAX
 /// 	B index: 3
 /// 	A contains indexes: 9 4 2 1 0
@@ -56,7 +58,7 @@ void	get_position(t_list *stack)
 /// 	3  < 20					: target_pos updated to 3
 /// So target_pos needs to be the position of index 3, since that is
 /// the "end" of the stack.
-/// for each node in b (in caller function)
+/// For each node in b (in caller function)
 /// go through each node in a 
 /// if index of node in a is greater than index of node in b 
 /// and if that index is smaller than previous max idex
