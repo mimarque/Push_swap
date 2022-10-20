@@ -6,7 +6,7 @@
 /*   By: mimarque <mimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:54:06 by mimarque          #+#    #+#             */
-/*   Updated: 2022/10/19 16:50:56 by mimarque         ###   ########.fr       */
+/*   Updated: 2022/10/20 14:43:09 by mimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	get_target_position(t_list *a, t_list *b)
 	tidx = INT_MAX;
 	while (tmp_b)
 	{
-		get_target(a, b, &tidx, &tpos);
+		get_target(a, tmp_b, &tidx, &tpos);
 		((t_stack *)tmp_b->content)->target_pos = tpos;
 		tmp_b = tmp_b->next;
 	}
