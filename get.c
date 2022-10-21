@@ -6,7 +6,7 @@
 /*   By: mimarque <mimarque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 12:38:24 by mimarque          #+#    #+#             */
-/*   Updated: 2022/10/19 16:37:44 by mimarque         ###   ########.fr       */
+/*   Updated: 2022/10/21 12:14:54 by mimarque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,7 @@ void	get_position(t_list *stack)
 /// and if that index is smaller than previous max idex
 /// update target index and targuet position (gpt_vars())
 /// edge-case:
-/// if list is stupidly large and tindex is not between two values
-/// tidx is INT_MAX still put it next to the smallest value
+/// if tidx is still INT_MAX still put it next to the smallest value
 void	get_target(t_list *a, t_list *b, int *tidx, int *tpos)
 {
 	t_list	*tmp_a;
