@@ -68,6 +68,8 @@ void	get_target_position(t_list *a, t_list *b)
 		get_target(a, tmp_b, &tidx, &tpos);
 		((t_stack *)tmp_b->content)->target_pos = tpos;
 		tmp_b = tmp_b->next;
+		tidx = INT_MAX;
+		tpos = 0;
 	}
 }
 
